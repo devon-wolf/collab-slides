@@ -1,383 +1,245 @@
 ---
-# try also 'default' to start simple
-theme: seriph
-# random image from a curated Unsplash collection by Anthony
-# like them? see https://unsplash.com/collections/94734566/slidev
-background: https://source.unsplash.com/collection/94734566/1920x1080
-# apply any windi css classes to the current slide
+theme: default
 class: 'text-center'
-# https://sli.dev/custom/highlighters.html
 highlighter: shiki
-# show line numbers in code blocks
-lineNumbers: false
-# some information about the slides, markdown enabled
+lineNumbers: true
 info: |
-  ## Slidev Starter Template
-  Presentation slides for developers.
-
-  Learn more at [Sli.dev](https://sli.dev)
-# persist drawings in exports and build
+  ## Gitting Along Slides
 drawings:
   persist: false
 ---
+# Gitting Along
 
-# Welcome to Slidev
+Talking to Humans and Coding Collaboratively
 
-Presentation slides for developers
-
-<div class="pt-12">
-  <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    Press Space for next page <carbon:arrow-right class="inline"/>
-  </span>
-</div>
-
-<div class="abs-br m-6 flex gap-2">
-  <button @click="$slidev.nav.openInEditor()" title="Open in Editor" class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon:edit />
-  </button>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub"
-    class="text-xl icon-btn opacity-50 !border-none !hover:text-white">
-    <carbon-logo-github />
-  </a>
-</div>
-
-<!--
-The last comment block of each slide will be treated as slide notes. It will be visible and editable in Presenter Mode along with the slide. [Read more in the docs](https://sli.dev/guide/syntax.html#notes)
--->
-
----
-
-# What is Slidev?
-
-Slidev is a slides maker and presenter designed for developers, consist of the following features
-
-- 📝 **Text-based** - focus on the content with Markdown, and then style them later
-- 🎨 **Themable** - theme can be shared and used with npm packages
-- 🧑‍💻 **Developer Friendly** - code highlighting, live coding with autocompletion
-- 🤹 **Interactive** - embedding Vue components to enhance your expressions
-- 🎥 **Recording** - built-in recording and camera view
-- 📤 **Portable** - export into PDF, PNGs, or even a hostable SPA
-- 🛠 **Hackable** - anything possible on a webpage
-
-<br>
-<br>
-
-Read more about [Why Slidev?](https://sli.dev/guide/why)
-
-<!--
-You can have `style` tag in markdown to override the style for the current page.
-Learn more: https://sli.dev/guide/syntax#embedded-styles
--->
-
-<style>
-h1 {
-  background-color: #2B90B6;
-  background-image: linear-gradient(45deg, #4EC5D4 10%, #146b8c 20%);
-  background-size: 100%;
-  -webkit-background-clip: text;
-  -moz-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  -moz-text-fill-color: transparent;
-}
-</style>
-
----
-
-# Navigation
-
-Hover on the bottom-left corner to see the navigation's controls panel, [learn more](https://sli.dev/guide/navigation.html)
-
-### Keyboard Shortcuts
-
-|     |     |
-| --- | --- |
-| <kbd>right</kbd> / <kbd>space</kbd>| next animation or slide |
-| <kbd>left</kbd>  / <kbd>shift</kbd><kbd>space</kbd> | previous animation or slide |
-| <kbd>up</kbd> | previous slide |
-| <kbd>down</kbd> | next slide |
-
-<!-- https://sli.dev/guide/animations.html#click-animations -->
-<img
-  v-click
-  class="absolute -bottom-9 -left-7 w-80 opacity-50"
-  src="https://sli.dev/assets/arrow-bottom-left.svg"
-/>
-<p v-after class="absolute bottom-23 left-45 opacity-30 transform -rotate-10">Here!</p>
-
----
-layout: image-right
-image: https://source.unsplash.com/collection/94734566/1920x1080
----
-
-# Code
-
-Use code snippets and get the highlighting directly![^1]
-
-```ts {all|2|1-6|9|all}
-interface User {
-  id: number
-  firstName: string
-  lastName: string
-  role: string
-}
-
-function updateUser(id: number, update: User) {
-  const user = getUser(id)
-  const newUser = { ...user, ...update }
-  saveUser(id, newUser)
-}
-```
-
-<arrow v-click="3" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="1" />
-
-[^1]: [Learn More](https://sli.dev/guide/syntax.html#line-highlighting)
-
-<style>
-.footnotes-sep {
-  @apply mt-20 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
-</style>
-
----
-
-# Components
-
-<div grid="~ cols-2 gap-4">
-<div>
-
-You can use Vue components directly inside your slides.
-
-We have provided a few built-in components like `<Tweet/>` and `<Youtube/>` that you can use directly. And adding your custom components is also super easy.
-
-```html
-<Counter :count="10" />
-```
-
-<!-- ./components/Counter.vue -->
-<Counter :count="10" m="t-4" />
-
-Check out [the guides](https://sli.dev/builtin/components.html) for more.
-
-</div>
-<div>
-
-```html
-<Tweet id="1390115482657726468" />
-```
-
-<Tweet id="1390115482657726468" scale="0.65" />
-
-</div>
-</div>
-
-
----
-class: px-20
----
-
-# Themes
-
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="-t-2">
-
-```yaml
----
-theme: default
----
-```
-
-```yaml
----
-theme: seriph
----
-```
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true">
-
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true">
-
-</div>
-
-Read more about [How to use a theme](https://sli.dev/themes/use.html) and
-check out the [Awesome Themes Gallery](https://sli.dev/themes/gallery.html).
-
----
-preload: false
----
-
-# Animations
-
-Animations are powered by [@vueuse/motion](https://motion.vueuse.org/).
-
-```html
-<div
-  v-motion
-  :initial="{ x: -80 }"
-  :enter="{ x: 0 }">
-  Slidev
-</div>
-```
-
-<div class="w-60 relative mt-6">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-square.png"
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-circle.png"
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-triangle.png"
-    />
-  </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
-
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 40, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn More](https://sli.dev/guide/animations.html#motion)
-
-</div>
-
----
-
-# LaTeX
-
-LaTeX is supported out-of-box powered by [KaTeX](https://katex.org/).
-
-<br>
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-$$
-\begin{array}{c}
-
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
-= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
-
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
-
-\nabla \cdot \vec{\mathbf{B}} & = 0
-
-\end{array}
-$$
-
-<br>
-
-[Learn more](https://sli.dev/guide/syntax#latex)
-
----
-
-# Diagrams
-
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-3 gap-10 pt-4 -mb-6">
-
-```mermaid {scale: 0.5}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
-</div>
-
-[Learn More](https://sli.dev/guide/syntax.html#diagrams)
-
+<!-- notes -->
 
 ---
 layout: center
-class: text-center
 ---
 
-# Learn More
+# Agenda
 
-[Documentations](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/showcases.html)
+- Collaborating in the Wild
+- Communication and Process
+- Feature Branching with Git
+- Stopping Merge Conflicts before They Start
+
+<!-- notes -->
+
+---
+
+# About Me
+
+Devon Wolfkiel
+- Consulting Engineer at CDW
+- Alchemy grad, June 2021
+- Alchemy TA, April 2021 cohort
+- Ex- knifemaker, house painter, and book editor
+
+<!-- notes -->
+
+---
+
+# This Talk is Not About
+
+- Using git flawlessly
+- The specific preferences or workflow of any given team
+- Anything especially technical
+
+<!-- notes -->
+
+---
+
+# This Talk is About
+
+- Making team agreements
+- Preventing conflicts
+- Writing nice, readable PRs
+
+<!-- notes -->
+
+---
+
+# Why?
+
+As you start your careers as developers, it can take a while for your peers to see your chops.
+- Pull requests may be the main way your team members get to know your work.
+- A thoughtful, focused pull request shows you see the big picture, that you know how to work in a team, and that you are doing your part to make a complicated job easy.
+- On the other hand, a messy, overreaching pull request slows down the team, can introduce hard-to-parse conflicts, and adds a new layer of work when you have to fix it.
+
+<!-- notes -->
+
+---
+layout: center
+---
+
+# Collaborating in the Wild
+
+<!-- notes -->
+
+---
+
+# You Will Work with Other People
+and it will probably involve git
+- The way work is executed on any given team is going to vary, but in general, part of what you do most days as a programmer will involve combining something you're working on right now with something someone else has worked on or is going to work on.
+- "You, in the past" and "you, in the future" are also other people!
+- This can get messy, even with the best laid plans. When things get messy, people need to move more slowly to navigate through the mess.
+
+---
+
+# CONTRIBUTING.md
+
+- Ideally, projects you work on will have some documentation about setup, preferred conventions, etc. This tends to live either in the README or a doc called CONTRIBUTING or something similar.
+- If they don't: **ask**, and record the answers! If it's a solo project or one where you're the main dev: **write it**!
+  - Seriously - "you, in the future" will thank you when they forget how to spin up that weird-but-cool abandoned repo lurking on your hard drive.
+
+<!--
+  switch over to a sample project and write up a CONTRIBUTING doc, continue with the doc as we continue through the slides
+ -->
+---
+layout: center
+---
+
+# Communication and Process
+
+<!-- 
+- team should agree on the processes to be used on the project
+- the process should be *documented* for ease of reference and onboarding of new team members; this helps provide accountability and is also just easier
+- in this section, let's create a CONTRIBUTING.md that lays out how our imaginary team is going to agree to work together
+-->
+
+---
+
+# Talk to People
+- if you don't know how your team likes to handle collaboration, **ask**
+  - if it's not written down anywhere, **write it down**, ideally where new devs on the project can find it
+
+---
+# Tests
+
+- A codebase without tests is broken code - either waiting to happen, or that has already happened and you just haven't noticed.
+- If your team doesn't have standards in place for what to test, **put them in place**.
+- If you add a new feature, add a test for that feature. If you fix a bug, make sure there's a test to show it's fixed.
+- Tests are not just for testing - they're also documentation and make reviewing code much easier.
+
+---
+layout: center
+---
+
+# Feature Branching with Git
+
+<!-- notes -->
+
+---
+
+# Git is Expansive
+- there is so, so much you can do with git and the collaboration tools that have built up around it - try not to worry about this
+- being thoughtful about your changes and making sure you keep your code up to date is way, way more important than being able to effortlessly rebase or cherry-pick commits
+
+---
+
+# A Common Workflow
+- start on `the-branch-we-merge-all-the-stuff-to` and run `git pull origin the-branch-we-merge-all-the-stuff-to` to make sure it's up to date, then:
+
+<br />
+
+- `git checkout -b feature/some-new-feature`
+  - *write some very groundbreaking and amazing code, run any formatting steps*
+- `git add -A`
+- `git commit -m 'adds my super cool changes'`
+- `git pull origin the-branch-we-merge-all-the-stuff-to`
+  - *if there are conflicts, resolve them and commit the changes*
+
+<br />
+probably run through the above steps a few more times, or maybe go straight to:
+
+- `git push origin feature/some-new-feature`
+---
+
+# Now We Make a Pull Request
+
+- I find it useful to review my changes and write up a short list of the meaningful things this new code is meant to accomplish
+
+---
+layout: center
+---
+
+# Stopping Merge Conflicts before They Start
+
+<!-- notes -->
+
+---
+
+# Why Do Merge Conflicts Happen?
+
+- Merge conflicts are going to happen - when more than one person makes changes to the same section of code, there will need to be some manual intervention to tell git which changes should be kept. This is normal and good.
+- Our goal, then, is to catch these conflicts early so we can reason about them more clearly, and to try to minimize unnecessary conflicts.
+
+<!-- notes -->
+
+---
+
+# How to Minimize Merge Conflicts
+<br />
+<br />
+
+## Pull down often
+The more you pull in fresh code, the smaller and less cumbersome any merge conflicts will be.
+
+## Focus on the task at hand
+The more your scope grows, the more conflicts you may introduce, and the harder it is to think about them.
+
+---
+
+# More Minimizing Merge Conflicts
+<br />
+<br />
+
+## If you change something big, push early
+- Big changes are more likely to touch everyone's code, so you'll want your team to have the latest version ASAP.
+- If they came as a surprise while you were working on something else, consider whether you should make these significant changes as part of their own branch.
+
+## Have a plan
+Knowing what you intend to be working on before you start will help will all of the above.
+
+---
+
+# Summary
+
+- Communicate about what you and the people you're working with expect.
+- Make sure you are working with the freshest code.
+- Keep your branches focused.
+- Write tests.
+
+---
+# Resources and Links
+### Git guides:
+- [Git intro, overview, and commonly used commands](https://rubygarage.org/blog/most-basic-git-commands-with-examples) from RubyGarage
+- [Gitflow workflow](https://www.atlassian.com/git/tutorials/comparing-workflows/gitflow-workflow) and [trunk-based development](https://www.atlassian.com/continuous-delivery/continuous-integration/trunk-based-development) from Atlassian
+- GitHub's [pull request documentation](https://docs.github.com/en/pull-requests)
+
+<br />
+<br />
+
+### Other:
+- [docs](https://docs.npmjs.com/cli/v8/commands/npm-ci) for the `npm ci` command, which removes existing node modules, looks at an existing `package-lock.json`, and installs dependencies based on the `package-lock` - this can be especially useful if/when your `package-lock` gets out of sync with your team
+
+<br />
+<br />
+
+---
+
+# More Resources
+
+### Discussions and food for thought:
+- [HackerNews thread](https://news.ycombinator.com/item?id=30712175) about people's preferred git commit/push patterns
+- [Tips for code reviews](https://betterprogramming.pub/5-rules-for-every-code-review-98bf60dd5dbe) by Israel Miles on Medium
+
+<br />
+<br />
+
+### Where to find me:
+- [GitHub](https://github.com/devon-wolf)
+- [LinkedIn](https://www.linkedin.com/in/devon-wolfkiel)
+- [My resume](https://devon-wolf.github.io/resume/), if you want it?
